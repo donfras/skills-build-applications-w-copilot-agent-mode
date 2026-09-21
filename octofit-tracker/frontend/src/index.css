@@ -1,0 +1,20 @@
+:root {
+  font-family: 'Avenir Next', 'Trebuchet MS', sans-serif;
+  color: #172b2b;
+  background: #f5f0e8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ink: #172b2b;
+  --muted: #6e7e78;
+  --paper: #fffdf8;
+  --line: #d9ded5;
+  --mint: #b8e8c7;
+  --coral: #ff765e;
+  --sun: #f6c453;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+a { color: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
