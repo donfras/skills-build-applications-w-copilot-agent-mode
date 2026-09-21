@@ -4,8 +4,26 @@ export const API_BASE_URL = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
   : 'http://localhost:8000'
 
+export const API_ENDPOINTS = {
+  users: codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/users/`
+    : 'http://localhost:8000/api/users/',
+  activities: codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/activities/`
+    : 'http://localhost:8000/api/activities/',
+  teams: codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/teams/`
+    : 'http://localhost:8000/api/teams/',
+  leaderboard: codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/leaderboard/`
+    : 'http://localhost:8000/api/leaderboard/',
+  workouts: codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/workouts/`
+    : 'http://localhost:8000/api/workouts/',
+}
+
 export async function fetchCollection(component) {
-  const response = await fetch(`${API_BASE_URL}/api/${component}/`)
+  const response = await fetch(API_ENDPOINTS[component] || `${API_BASE_URL}/api/${component}/`)
   if (!response.ok) {
     throw new Error(`Unable to load ${component} (${response.status})`)
   }
