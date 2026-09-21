@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react'
 import { fetchCollection } from '../api.js'
 
+const activitiesApiUrl = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+  : 'http://localhost:8000/api/activities/'
+
 function Activities() {
   const [activities, setActivities] = useState([])
   const [error, setError] = useState('')
 
   useEffect(() => {
-    fetchCollection('activities').then(setActivities).catch((error) => setError(error.message))
+    fetchCollection('activities', activitiesApiUrl).then(setActivities).catch((error) => setError(error.message))
   }, [])
 
   return <DataView title="Activity log" kicker="MOVEMENT / RECENT" error={error}>

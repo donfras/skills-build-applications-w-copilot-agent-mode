@@ -22,8 +22,8 @@ export const API_ENDPOINTS = {
     : 'http://localhost:8000/api/workouts/',
 }
 
-export async function fetchCollection(component) {
-  const response = await fetch(API_ENDPOINTS[component] || `${API_BASE_URL}/api/${component}/`)
+export async function fetchCollection(component, endpoint = API_ENDPOINTS[component]) {
+  const response = await fetch(endpoint || `${API_BASE_URL}/api/${component}/`)
   if (!response.ok) {
     throw new Error(`Unable to load ${component} (${response.status})`)
   }
